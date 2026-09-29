@@ -1,1 +1,157 @@
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>الـ؏ـقࢪبہ🖤🦂 ⦔</title><meta name="description" content="الـ؏ـقࢪبہ🖤🦂 ⦔ — AI Platform"><link rel="stylesheet" href="style.css"></head><body><aside class="sidebar"><div class="brand"><b>🦂 الـ؏ـقࢪبہ</b><small>AI PLATFORM</small></div><button id="newChat">＋ محادثة جديدة</button><nav><button class="active">💬 التشات</button><button>🎨 الصور</button><button>💻 البرمجة</button><button>📁 الملفات</button><button>🌐 البحث</button></nav><div class="profile">🦂 حسابك</div></aside><main><header><span>🟢 النظام جاهز</span></header><section class="hero"><div class="badge">🦂 WELCOME TO THE NEXT LEVEL</div><h1>أهلاً بك في<br><strong>الـ؏ـقࢪبہ🖤🦂 ⦔</strong></h1><p>ذكاء اصطناعي بواجهة فخمة، سريعة، ومصممة لتكون مركزك لكل شيء.</p><div class="quick"><button data-prompt="اكتب لي فكرة مشروع قوية ومميزة">💡 فكرة مشروع</button><button data-prompt="اكتب لي كود HTML لصفحة احترافية">💻 اكتب كود</button><button data-prompt="حلل لي هذا الموضوع بطريقة واضحة">🧠 حلّل</button></div></section><section class="chat"><div id="messages"><div class="empty">🦂<b>كيف أقدر أساعدك؟</b><small>اكتب رسالتك بالأسفل للبدء.</small></div></div><div class="composer"><textarea id="input" placeholder="اكتب رسالتك هنا..."></textarea><div class="row"><span>＋　🌐</span><button id="sendBtn">إرسال ➤</button></div></div><div class="note">واجهة تجريبية — سيتم ربط الذكاء الاصطناعي الحقيقي في الخطوة التالية.</div></section></main><script src="game.js"></script></body></html>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <title>الـ؏ـقࢪبہ🖤🦂 ⦔</title>
+  <meta name="description" content="الـ؏ـقࢪبہ🖤🦂 ⦔ — AI Platform">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="inferno">
+  <div class="app-shell">
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark">🦂</div>
+        <div>
+          <strong>الـ؏ـقࢪبہ</strong>
+          <small>AI PLATFORM</small>
+        </div>
+      </div>
+
+      <button class="new-chat" id="newChat">
+        <span>＋</span> محادثة جديدة
+      </button>
+
+      <div class="side-section-title">المساحة</div>
+      <nav class="main-nav" aria-label="التنقل">
+        <button class="nav-btn active" data-view="chat"><span>💬</span> التشات</button>
+        <button class="nav-btn" data-view="images"><span>🎨</span> الصور</button>
+        <button class="nav-btn" data-view="coding"><span>💻</span> البرمجة</button>
+        <button class="nav-btn" data-view="files"><span>📁</span> الملفات</button>
+        <button class="nav-btn" data-view="research"><span>🌐</span> البحث</button>
+      </nav>
+
+      <div class="side-section-title">المحادثات</div>
+      <div class="history" id="history">
+        <button class="history-item active">🦂 محادثة جديدة</button>
+        <button class="history-item">💡 فكرة مشروع</button>
+        <button class="history-item">💻 مشروع البرمجة</button>
+      </div>
+
+      <div class="sidebar-bottom">
+        <button class="account-card" id="accountBtn">
+          <span class="avatar">🦂</span>
+          <span><b>حسابك</b><small>إعدادات الحساب</small></span>
+          <span>⋮</span>
+        </button>
+        <button class="mini-link" id="settingsBtn">⚙️ الإعدادات</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn mobile-only" id="menuBtn" aria-label="فتح القائمة">☰</button>
+        <div class="top-title">
+          <span class="status-dot"></span>
+          <div><b>الـ؏ـقࢪبہ🖤🦂 ⦔</b><small>جاهز للمساعدة</small></div>
+        </div>
+        <div class="top-actions">
+          <button class="icon-btn" id="searchBtn" title="البحث في المحادثة">⌕</button>
+          <button class="icon-btn" id="settingsTopBtn" title="الإعدادات">⚙</button>
+        </div>
+      </header>
+
+      <section class="chat-stage">
+        <div class="welcome" id="welcome">
+          <div class="welcome-badge">🦂 WELCOME TO THE NEXT LEVEL</div>
+          <h1>أهلاً بك في<br><strong>الـ؏ـقࢪبہ🖤🦂 ⦔</strong></h1>
+          <p>مركزك الذكي للمحادثة، الأفكار، البرمجة، الملفات، والإنشاء.</p>
+          <div class="quick-grid">
+            <button class="quick-card" data-prompt="اعطيني فكرة مشروع قوية ومميزة">
+              <span>💡</span><b>فكرة مشروع</b><small>ابدأ بفكرة جديدة</small>
+            </button>
+            <button class="quick-card" data-prompt="اكتب لي كود HTML لواجهة احترافية">
+              <span>💻</span><b>اكتب كود</b><small>مساعدة برمجية</small>
+            </button>
+            <button class="quick-card" data-prompt="حلل لي هذا الموضوع بطريقة واضحة">
+              <span>🧠</span><b>حلّل</b><small>فهم وتنظيم الأفكار</small>
+            </button>
+            <button class="quick-card" data-prompt="رتب لي خطة عمل لمشروع جديد">
+              <span>🚀</span><b>خطة عمل</b><small>من الفكرة للتنفيذ</small>
+            </button>
+          </div>
+        </div>
+
+        <div class="messages" id="messages" aria-live="polite"></div>
+
+        <div class="composer-wrap">
+          <div class="composer" id="composer">
+            <div class="composer-tools">
+              <button class="tool-btn" id="attachBtn" title="إرفاق ملف">＋</button>
+              <button class="tool-btn" id="toolsBtn" title="الأدوات">🧰</button>
+              <button class="tool-btn" id="webBtn" title="البحث على الويب">🌐</button>
+              <span class="mode-label" id="modeLabel">المحادثة</span>
+            </div>
+            <textarea id="input" rows="1" maxlength="12000" placeholder="اكتب رسالتك هنا..."></textarea>
+            <div class="composer-bottom">
+              <div class="composer-hint"><span>Enter للإرسال</span><span>Shift + Enter لسطر جديد</span></div>
+              <button class="send-btn" id="sendBtn"><span>إرسال</span><span>➤</span></button>
+            </div>
+            <input type="file" id="fileInput" hidden multiple>
+          </div>
+          <div class="privacy-note">نسخة واجهة تجريبية • لا توجد مفاتيح API داخل المتصفح</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="popover" id="toolsPopover" hidden>
+    <button data-mode="المحادثة">💬 المحادثة</button>
+    <button data-mode="البحث">🌐 البحث</button>
+    <button data-mode="البرمجة">💻 البرمجة</button>
+    <button data-mode="تحليل ملف">📁 تحليل ملف</button>
+  </div>
+
+  <div class="modal-backdrop" id="settingsModal" hidden>
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+      <button class="modal-close" id="closeSettings">×</button>
+      <div class="modal-head">
+        <div class="modal-icon">⚙️</div>
+        <div><h2 id="settingsTitle">إعدادات الواجهة</h2><p>نضبط الشكل الآن، ونربط الذكاء الحقيقي لاحقًا.</p></div>
+      </div>
+
+      <div class="settings-grid">
+        <label class="setting-row">
+          <span><b>الثيم</b><small>اختَر أجواء الواجهة</small></span>
+          <select id="themeSelect">
+            <option value="inferno">Inferno 🔥</option>
+            <option value="blood">Blood 🩸</option>
+            <option value="phantom">Phantom 👻</option>
+            <option value="cyber">Cyber ⚡</option>
+            <option value="ice">Ice ❄️</option>
+            <option value="cosmic">Cosmic 🌌</option>
+          </select>
+        </label>
+        <label class="setting-row">
+          <span><b>حركة الواجهة</b><small>تأثيرات خفيفة</small></span>
+          <input type="checkbox" id="motionToggle" checked>
+        </label>
+        <label class="setting-row">
+          <span><b>صوت الإرسال</b><small>يُفعّل لاحقًا مع النظام الصوتي</small></span>
+          <input type="checkbox" id="soundToggle">
+        </label>
+      </div>
+      <div class="settings-footer">
+        <button class="ghost-btn" id="resetSettings">إعادة الضبط</button>
+        <button class="primary-btn" id="closeSettings2">تم</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="game.js"></script>
+</body>
+</html>
